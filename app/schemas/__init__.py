@@ -99,7 +99,9 @@ class UserProfileResponse(CamelModel):
     # Faculty fields
     designation: Optional[str] = None
 
-    model_config = {"populate_by_name": True, "from_attributes": True}
+    class Config:
+    orm_mode = True
+    allow_population_by_field_name = True
 
 
 class UpdateProfileRequest(BaseModel):
