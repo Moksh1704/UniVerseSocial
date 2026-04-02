@@ -48,7 +48,7 @@ def register(payload: RegisterRequest, db: Session = Depends(get_db)):
     return TokenResponse(
         accessToken=access_token,
         refreshToken=refresh_token,
-        user=UserProfileResponse.model_validate(user),
+       user=UserProfileResponse.from_orm(user),
     )
 
 
