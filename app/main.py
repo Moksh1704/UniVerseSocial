@@ -22,7 +22,7 @@ from app.routers import auth, users, announcements, events, attendance, posts, t
 Path(settings.UPLOAD_DIR).mkdir(parents=True, exist_ok=True)
 
 # ── Create DB tables (use Alembic migrations in production) ───────────────────
-Base.metadata.create_all(bind=engine)
+# Base.metadata.create_all(bind=engine)
 
 # ── FastAPI App ───────────────────────────────────────────────────────────────
 app = FastAPI(
