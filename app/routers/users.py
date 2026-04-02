@@ -13,7 +13,7 @@ router = APIRouter(prefix="/users", tags=["Users"])
 @router.get("/me", response_model=UserProfileResponse)
 def get_my_profile(current_user: User = Depends(get_current_user)):
     """Get current user profile."""
-    return UserProfileResponse.model_validate(current_user)
+    return UserProfileResponse.from_orm(current_user)
 
 
 @router.patch("/me", response_model=UserProfileResponse)
@@ -36,7 +36,7 @@ def update_my_profile(
 
     db.commit()
     db.refresh(current_user)
-    return UserProfileResponse.model_validate(current_user)
+    return UserProfileResponse.from_orm(current_user)
 
 
 @router.post("/me/avatar", response_model=UserProfileResponse)
@@ -50,7 +50,7 @@ async def upload_avatar(
     current_user.avatar_url = url
     db.commit()
     db.refresh(current_user)
-    return UserProfileResponse.model_validate(current_user)
+    return UserProfileResponse.from_orm(current_user)
 
 
 @router.get("", response_model=List[UserProfileResponse])
