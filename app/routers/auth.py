@@ -68,7 +68,7 @@ def login(payload: LoginRequest, db: Session = Depends(get_db)):
     return TokenResponse(
         accessToken=access_token,
         refreshToken=refresh_token,
-        user=UserProfileResponse.model_validate(user),
+        user=UserProfileResponse.from_orm(user),
     )
 
 
@@ -89,7 +89,7 @@ def refresh_token(payload: RefreshTokenRequest, db: Session = Depends(get_db)):
     return TokenResponse(
         accessToken=access_token,
         refreshToken=new_refresh,
-        user=UserProfileResponse.model_validate(user),
+        user=UserProfileResponse.from_orm(user),
     )
 
 
