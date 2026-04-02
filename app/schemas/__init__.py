@@ -428,3 +428,5 @@ class NotificationResponse(BaseModel):
             isRead=obj.is_read,
             createdAt=obj.created_at.isoformat(),
         )
+
+TokenResponse.update_forward_refs()
