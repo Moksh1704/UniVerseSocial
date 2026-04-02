@@ -3,7 +3,7 @@ from typing import List
 
 
 class Settings(BaseSettings):
-    DATABASE_URL: str = "postgresql://postgres:password@localhost:5432/universe_db"
+    DATABASE_URL = os.getenv("https://universesocial.onrender.com")
     SECRET_KEY: str = "change-this-secret-key-in-production-min-32-chars"
     ALGORITHM: str = "HS256"
     ACCESS_TOKEN_EXPIRE_MINUTES: int = 60
