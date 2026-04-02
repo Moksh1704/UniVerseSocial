@@ -1,4 +1,5 @@
 import os
+
 from pydantic import BaseSettings
 from typing import List
 
