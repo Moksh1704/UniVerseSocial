@@ -5,7 +5,7 @@ from typing import List
 
 
 class Settings(BaseSettings):
-    DATABASE_URL = os.getenv("postgresql://universe_db_zkm0_user:is9dVqRZg2w1Oh4RR4kz2nMu9CzMDMs5@dpg-d77198h4tr6s738dsb8g-a/universe_db_zkm0")
+    DATABASE_URL = os.getenv("DATABASE_URL")
     SECRET_KEY: str = "change-this-secret-key-in-production-min-32-chars"
     ALGORITHM: str = "HS256"
     ACCESS_TOKEN_EXPIRE_MINUTES: int = 60
